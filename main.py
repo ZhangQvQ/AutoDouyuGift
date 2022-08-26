@@ -45,7 +45,7 @@ def query_gift_list() -> list:
     payload = {
         'rid': room_id,
     }
-    query_backpack_url = base_url + backpack_uri
+    query_backpack_url = base_url + backpack_uri + '?rid=' + room_id
     response = requests.get(url=query_backpack_url, headers=headers, params=payload, cookies=format_cookie(cookie))
     res_json_obj = json.loads(response.text)
     gift_list = res_json_obj['data']['list']
